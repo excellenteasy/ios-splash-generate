@@ -1,11 +1,11 @@
 {
-  "name": "ios-icon-resize",
-  "version": "1.0.1",
-  "description": "Create all required icons from one icon. Right size, right file name.",
+  "name": "ios-splash-generate",
+  "version": "1.0.0",
+  "description": "Generate all required splash screen images from one source. Right size, right file name.",
   "license": "MIT",
-  "repository": "excellenteasy/ios-icon-resize",
+  "repository": "excellenteasy/ios-splash-generate",
   "bin": {
-    "ios-icon-resize": "cli.js"
+    "ios-splash-generate": "cli.js"
   },
   "author": {
     "name": "David Pfahler",
@@ -20,20 +20,24 @@
   },
   "files": [
     "index.js",
-    "cli.js",
-    "icons.json"
+    "cli.js"
   ],
   "keywords": [
     "cli",
     "bin",
-    "icon",
+    "splash",
+    "screen",
+    "generate",
+    "create",
+    "resize",
+    "crop",
     "ios",
     "cordova",
     "phonegap"
   ],
   "dependencies": {
     "colors": "^1.0.3",
-    "ios-icons": "^1.0.2",
+    "ios-splash": "^1.0.0",
     "lwip": "0.0.5",
     "minimist": "^1.1.0",
     "q": "^1.1.2"

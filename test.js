@@ -6,25 +6,20 @@ var rimraf = require('rimraf');
 var mkdirp = require('mkdirp');
 
 test('creates all icons in tmp directory', function (t) {
-	t.plan(15)
+	t.plan(10)
 	rimraf('tmp', function() {
 		mkdirp('tmp', function() {
 			resize('test/com.appbusinesspodcast.www.png', 'tmp/').then(function() {
-				t.ok(fs.existsSync('tmp/icon-60@3x.png'), 'icon-60@3x.png created');
-				t.ok(fs.existsSync('tmp/icon-60.png'), 'icon-60.png created');
-				t.ok(fs.existsSync('tmp/icon-60@2x.png'), 'icon-60@2x.png created');
-				t.ok(fs.existsSync('tmp/icon-76.png'), 'icon-76.png created');
-				t.ok(fs.existsSync('tmp/icon-76@2x.png'), 'icon-76@2x.png created');
-				t.ok(fs.existsSync('tmp/icon-40.png'), 'icon-40.png created');
-				t.ok(fs.existsSync('tmp/icon-40@2x.png'), 'icon-40@2x.png created');
-				t.ok(fs.existsSync('tmp/icon.png'), 'icon.png created');
-				t.ok(fs.existsSync('tmp/icon@2x.png'), 'icon@2x.png created');
-				t.ok(fs.existsSync('tmp/icon-72.png'), 'icon-72.png created');
-				t.ok(fs.existsSync('tmp/icon-72@2x.png'), 'icon-72@2x.png created');
-				t.ok(fs.existsSync('tmp/icon-small.png'), 'icon-small.png');
-				t.ok(fs.existsSync('tmp/icon-small@2x.png'), 'icon-small@2x.png');
-				t.ok(fs.existsSync('tmp/icon-50.png'), 'icon-50.png created');
-				t.ok(fs.existsSync('tmp/icon-50@2x.png'), 'icon-50@2x.png created');
+				t.ok(fs.existsSync('tmp/Default~iphone.png'), 'Default~iphone.png' + 'created')
+        t.ok(fs.existsSync('tmp/Default@2x~iphone.png'), 'Default@2x~iphone.png' + 'created')
+        t.ok(fs.existsSync('tmp/Default-Portrait~ipad.png'), 'Default-Portrait~ipad.png' + 'created')
+        t.ok(fs.existsSync('tmp/Default-Portrait@2x~ipad.png'), 'Default-Portrait@2x~ipad.png' + 'created')
+        t.ok(fs.existsSync('tmp/Default-Landscape~ipad.png'), 'Default-Landscape~ipad.png' + 'created')
+        t.ok(fs.existsSync('tmp/Default-Landscape@2x~ipad.png'), 'Default-Landscape@2x~ipad.png' + 'created')
+        t.ok(fs.existsSync('tmp/Default-568h@2x~iphone.png'), 'Default-568h@2x~iphone.png' + 'created')
+        t.ok(fs.existsSync('tmp/Default-667h.png'), 'Default-667h.png' + 'created')
+        t.ok(fs.existsSync('tmp/Default-736h.png'), 'Default-736h.png' + 'created')
+        t.ok(fs.existsSync('tmp/Default-Landscape-736h.png'), 'Default-Landscape-736h.png' + 'created')
 			});
 		});
 	})

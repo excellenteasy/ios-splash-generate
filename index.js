@@ -1,5 +1,5 @@
 'use strict'
-var icons = require('ios-icons')
+var splash = require('ios-splash')
 var lwip = require('lwip')
 var Q = require('q')
 var path = require('path')
@@ -27,11 +27,21 @@ function clone(image) {
   return q.promise
 }
 
-function resize(icon, image) {
+function scale(splash, image) {
   var q = Q.defer()
-  image.resize(icon.width, function(err, resized) {
+  var ratio = splash.height < splash.width ? splash.width / image.width() : splash.height / image.height()
+  image.scale(ratio, ratio, function(err, scaled) {
     if (err) return q.reject(err)
-    q.resolve(resized)
+    q.resolve(scaled)
+  })
+  return q.promise
+}
+
+function crop(splash, image) {
+  var q = Q.defer()
+  image.crop(splash.width, splash.height, function(err, cropped) {
+    if (err) return q.reject(err)
+    q.resolve(cropped)
   })
   return q.promise
 }
@@ -45,8 +55,8 @@ function writeFile(path, image) {
   return q.promise
 }
 
-function successMessage(icon, output, path) {
-  return console.info(colors.green('OK'), 'Image resized to', icon.width, 'x', icon.width, 'and written to', path)
+function successMessage(splash, output, path) {
+  return console.info(colors.green('OK'), 'Image scaled and cropped to', splash.width, 'x', splash.height, 'and written to', path)
 }
 
 function errorMessage(e) {
@@ -54,18 +64,19 @@ function errorMessage(e) {
   console.error(colors.red('ERROR.'), message)
 }
 
-function transformAll(icons, output, image) {
-  return Q.all(icons
+function transformAll(splash, output, image) {
+  return Q.all(splash
     .map(transform.bind(null, image, output))
   )
 }
 
-function transform(image, output, icon) {
-  var out = output ? path.join(output, icon.name) : false
+function transform(image, output, splash) {
+  var out = output ? path.join(output, splash.name) : false
   return clone(image)
-    .then(resize.bind(null, icon))
+    .then(scale.bind(null, splash))
+    .then(crop.bind(null, splash))
     .then(writeFile.bind(null, out))
-    .then(successMessage.bind(null, icon, output))
+    .then(successMessage.bind(null, splash, output))
     .catch(errorMessage)
 }
 
@@ -74,5 +85,5 @@ module.exports = function(input, output) {
     errorMessage(new Error('`input` parameter is required.'))
   }
   var output = output || process.cwd()
-  return openImage(input).then(transformAll.bind(null, icons(), output))
+  return openImage(input).then(transformAll.bind(null, splash(), output))
 }

@@ -2,7 +2,7 @@
 'use strict'
 var argv = require('minimist')(process.argv.slice(2))
 var pkg = require('./package.json')
-var resize = require('./')
+var generate = require('./')
 var input = argv.input || argv.i
 var output = argv.output || argv.o
 
@@ -11,7 +11,7 @@ function help() {
     pkg.description,
     '',
     'Example',
-    '  $ ios-icon-resize -i path/to/icon.png -o path/to/output/'
+    '  $ ios-splash-generate -i path/to/source.png -o path/to/output/'
   ].join('\n'))
 }
 
@@ -26,7 +26,7 @@ if (argv.version) {
 }
 
 if (input) {
-  resize(argv.input || argv.i, output)
+  generate(argv.input || argv.i, output)
   return
 } else {
   console.error('Please specify an input icon file witht the `-i` option.')
