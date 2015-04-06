@@ -2,18 +2,27 @@
   "name": "ios-splash-generate",
   "version": "1.0.0",
   "description": "Generate all required splash screen images from one source. Right size, right file name.",
-  "license": "MIT",
-  "repository": "excellenteasy/ios-splash-generate",
+  "dependencies": {
+    "colors": "^1.0.3",
+    "ios-splash": "^1.0.0",
+    "lwip": "0.0.5",
+    "minimist": "^1.1.0",
+    "q": "^1.1.2"
+  },
+  "devDependencies": {
+    "mkdirp": "^0.5.0",
+    "rimraf": "^2.2.8",
+    "tape": "^3.0.3"
+  },
   "bin": {
     "ios-splash-generate": "cli.js"
   },
-  "author": {
-    "name": "David Pfahler",
-    "email": "david@excellenteasy.com",
-    "url": "http://excellenteasy.com"
-  },
+  "main": "index.js",
+  "author": "David Pfahler <david@excellenteasy.com>",
   "engines": {
-    "node": ">=0.10.0"
+    "iojs": "^1",
+    "node": "^0.10",
+    "npm": "^2"
   },
   "scripts": {
     "test": "node test.js"
@@ -35,16 +44,9 @@
     "cordova",
     "phonegap"
   ],
-  "dependencies": {
-    "colors": "^1.0.3",
-    "ios-splash": "^1.0.0",
-    "lwip": "0.0.5",
-    "minimist": "^1.1.0",
-    "q": "^1.1.2"
-  },
-  "devDependencies": {
-    "mkdirp": "^0.5.0",
-    "rimraf": "^2.2.8",
-    "tape": "^3.0.3"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/excellenteasy/ios-splash-generate"
   }
 }
