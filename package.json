@@ -2,6 +2,8 @@
   "name": "ios-splash-generate",
   "version": "1.0.0",
   "description": "Generate all required splash screen images from one source. Right size, right file name.",
+  "bugs": "https://github.com/excellenteasy/ios-splash-generate/issues",
+  "homepage": "https://github.com/excellenteasy/ios-splash-generate",
   "dependencies": {
     "colors": "^1.0.3",
     "ios-splash": "^2.0.0",
