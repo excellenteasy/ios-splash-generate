@@ -16,9 +16,7 @@
     "rimraf": "^2.2.8",
     "tape": "^4.0.0"
   },
-  "bin": {
-    "ios-splash-generate": "cli.js"
-  },
+  "bin": "./bin/ios-splash-generate.js",
   "main": "index.js",
   "author": "David Pfahler <david@excellenteasy.com>",
   "engines": {
