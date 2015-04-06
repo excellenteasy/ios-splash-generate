@@ -4,15 +4,15 @@
   "description": "Generate all required splash screen images from one source. Right size, right file name.",
   "dependencies": {
     "colors": "^1.0.3",
-    "ios-splash": "^1.0.0",
-    "lwip": "0.0.5",
+    "ios-splash": "^2.0.0",
+    "lwip": "0.0.6",
     "minimist": "^1.1.0",
     "q": "^1.1.2"
   },
   "devDependencies": {
     "mkdirp": "^0.5.0",
     "rimraf": "^2.2.8",
-    "tape": "^3.0.3"
+    "tape": "^4.0.0"
   },
   "bin": {
     "ios-splash-generate": "cli.js"
