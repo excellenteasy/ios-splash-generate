@@ -6,7 +6,7 @@ var generate = require('../')
 var input = argv.input || argv.i
 var output = argv.output || argv.o
 
-function help() {
+function help () {
   console.log([
     pkg.description,
     '',
@@ -15,19 +15,23 @@ function help() {
   ].join('\n'))
 }
 
-if (argv.help) {
-  help()
-  return
+function cli () {
+  if (argv.help) {
+    help()
+    return
+  }
+
+  if (argv.version) {
+    console.log(pkg.version)
+    return
+  }
+
+  if (input) {
+    generate(argv.input || argv.i, output)
+    return
+  } else {
+    console.error('Please specify an input icon file witht the `-i` option.')
+  }
 }
 
-if (argv.version) {
-  console.log(pkg.version)
-  return
-}
-
-if (input) {
-  generate(argv.input || argv.i, output)
-  return
-} else {
-  console.error('Please specify an input icon file witht the `-i` option.')
-}
+cli()
