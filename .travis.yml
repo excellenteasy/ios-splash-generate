@@ -1,44 +1,23 @@
 language: node_js
-node_js:
-- iojs-v1
-- '0.12'
-- '0.10'
-sudo: false
 cache:
   directories:
-  - node_modules
+    - node_modules
 notifications:
   email: false
-  slack:
-    secure: Y76p61gumCAEgRG73AVSa/fK5dg0OAUuGbYWH8JuCtLnTdSmiptaY6Z4DZr8ov6SJCqwLMsjJzJ+lbtul5XLfUmx1RrLvz41uUuaQS3RPSq+3YGShYg/Q7+5GT1Xr/TAX3YmmOEQ11M7OeyQPEt75Im8p/iacbpRS1hvR6iwaCY=
+node_js:
+  - 'node'
+  - '6'
+  - '4'
 before_install:
-- npm i -g npm@^2.0.0
-- npm i -g pangyp
-- npm prune
-install:
-- npm install --node-gyp=$(which pangyp)
-before_script:
-- curl -Lo travis_after_all.py https://raw.github.com/dmakhno/travis_after_all/master/travis_after_all.py
-after_success:
-- python travis_after_all.py
-- export $(cat .to_export_back)
-after_failure:
-- python travis_after_all.py
-- export $(cat .to_export_back)
-before_deploy:
-- rm -f travis_after_all.py .to_export_back
-after_script:
-- echo leader=$BUILD_LEADER status=$BUILD_AGGREGATE_STATUS
-deploy:
-  provider: npm
-  email: david@excellenteasy.com
-  skip_cleanup: true
-  on:
-    branch: master
-    repo: excellenteasy/ios-splash-generate
-    condition: "$BUILD_LEADER$BUILD_AGGREGATE_STATUS = YESothers_succeeded"
-  api_key:
-    secure: IUwmlpvZiyxUFYK3M8qPZzPAgSY8FZSLCaPQpb3QzOUgHPDkb4cwYFxI0JuRjr3k3Z3k74nvVprsOjYrI7aCczxReSKg0JYmEEYU2Rszb1LmYd+xBGgCGW91KXPAKkjYo26eD4czi6b4VCfoMZ+D9DShrBNcHVhkMhUih2CMrxk=
+  - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+  - sudo apt-get -qq update
+  - sudo apt-get -qq install g++-4.8
 env:
-  global:
-    secure: BunP5NonyOo9FYXJy+dTsPQjMqrDI9pVl102Nzb19763zsdXfJuVKSydai7MTLrCamlZz5LicyobE/bOzrmlAYgEmMHcuT6dktWdylNqdtuhUcK1knlpo5Pfw9zM3lmFjlEDJ6HltmxIE7ET2hEel3i77x3mgKfIMs49HD6/Vlg=
+  - CXX=g++-4.8
+before_script:
+  - npm prune
+after_success:
+  - npm run semantic-release
+branches:
+  except:
+    - /^v\d+\.\d+\.\d+$/

@@ -7,7 +7,7 @@
   "dependencies": {
     "colors": "^1.0.3",
     "ios-splash": "^2.0.0",
-    "lwip": "0.0.6",
+    "lwip": "0.0.9",
     "minimist": "^1.1.0",
     "q": "^1.1.2"
   },
@@ -28,8 +28,7 @@
   },
   "scripts": {
     "test": "standard && node test.js",
-    "prepublish": "semantic-release pre",
-    "postpublish": "semantic-release post"
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "files": [
     "index.js",

@@ -1,10 +1,15 @@
 #!/usr/bin/env node
 'use strict'
-var argv = require('minimist')(process.argv.slice(2))
+var abbrev = require('abbrev')
+var minimist = require('minimist')
 var pkg = require('../package.json')
 var generate = require('../')
-var input = argv.input || argv.i
-var output = argv.output || argv.o
+
+var opts = {
+  alias: abbrev('help', 'input', 'output', 'version')
+}
+
+var argv = minimist(process.argv.slice(2), opts)
 
 function help () {
   console.log([
@@ -26,8 +31,17 @@ function cli () {
     return
   }
 
-  if (input) {
-    generate(argv.input || argv.i, output)
+  if (argv.input) {
+    // minimist will produce an array of values for args with full --options
+    // smush it down to a single string that resize() can use
+    if (argv.input.constructor === Array) {
+      argv.input = argv.input[0]
+    }
+    if (argv.output.constructor === Array) {
+      argv.output = argv.output[0]
+    }
+
+    generate(argv.input, argv.output)
     return
   } else {
     console.error('Please specify an input icon file witht the `-i` option.')
