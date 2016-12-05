@@ -1,6 +1,6 @@
 {
   "name": "ios-splash-generate",
-  "version": "0.0.0-semantically-released",
+  "version": "0.0.0-development",
   "description": "Generate all required splash screen images from one source. Right size, right file name.",
   "bugs": "https://github.com/excellenteasy/ios-splash-generate/issues",
   "homepage": "https://github.com/excellenteasy/ios-splash-generate",
@@ -14,7 +14,7 @@
   "devDependencies": {
     "mkdirp": "^0.5.0",
     "rimraf": "^2.2.8",
-    "semantic-release": "^3.0.4",
+    "semantic-release": "^6.3.2",
     "standard": "^3.3.2",
     "tape": "^4.0.0"
   },
