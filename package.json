@@ -6,7 +6,7 @@
   "homepage": "https://github.com/excellenteasy/ios-splash-generate",
   "dependencies": {
     "colors": "^1.0.3",
-    "ios-splash": "^2.0.0",
+    "ios-splash": "2.1.1",
     "lwip": "0.0.9",
     "minimist": "^1.1.0",
     "q": "^1.1.2"
