@@ -17,14 +17,14 @@ A 2208x2208 source image gets scaled first and then cropped to the target dimens
 ## Install
 
 ```sh
-$ npm install --save ios-splash-generate
+$ npm install --save @randy.tarampi/ios-splash-generate
 ```
 
 
 ## Usage
 
 ```js
-var generate = require('ios-splash-generate');
+var generate = require('@randy.tarampi/ios-splash-generate');
 
 generate('path/to/source.png', 'output/splash/').then(function() {
 	// splash images created
@@ -36,7 +36,7 @@ generate('path/to/source.png', 'output/splash/').then(function() {
 ## CLI
 
 ```sh
-$ npm install --global ios-splash-generate
+$ npm install --global @randy.tarampi/ios-splash-generate
 ```
 
 ```sh

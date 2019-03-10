@@ -1,5 +1,5 @@
 'use strict'
-var splash = require('ios-splash')
+var splash = require('@randy.tarampi/ios-splash')
 var lwip = require('@randy.tarampi/lwip')
 var Q = require('q')
 var path = require('path')
