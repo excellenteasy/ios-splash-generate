@@ -5,9 +5,9 @@
   "bugs": "https://github.com/excellenteasy/ios-splash-generate/issues",
   "homepage": "https://github.com/excellenteasy/ios-splash-generate",
   "dependencies": {
+    "@randy.tarampi/lwip": "^0.0.18",
     "colors": "^1.0.3",
     "ios-splash": "^2.0.0",
-    "lwip": "0.0.9",
     "minimist": "^1.1.0",
     "q": "^1.1.2"
   },
@@ -22,8 +22,7 @@
   "main": "index.js",
   "author": "David Pfahler <david@excellenteasy.com>",
   "engines": {
-    "iojs": "^1",
-    "node": "^0.10",
+    "node": "^4",
     "npm": "^2"
   },
   "scripts": {
