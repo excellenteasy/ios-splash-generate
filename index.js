@@ -16,7 +16,7 @@ function openImage (path) {
 }
 
 function clone (image) {
-  return new Promise(function(resolve, reject) {
+  return new Promise(function (resolve, reject) {
     image.clone(function (err, clone) {
       if (err) {
         reject(err)
@@ -48,8 +48,8 @@ function crop (splash, image) {
 function writeFile (path, image) {
   return new Promise(function (resolve, reject) {
     image.writeFile(path, function (err) {
-      if (err) return q.reject(err)
-      q.resolve(path)
+      if (err) return reject(err)
+      resolve(path)
     })
   })
 }
