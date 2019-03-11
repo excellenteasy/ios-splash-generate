@@ -6,8 +6,7 @@
   "homepage": "https://github.com/randytarampi/ios-splash-generate",
   "dependencies": {
     "@randy.tarampi/ios-splash": "^3.0.0",
-    "@randy.tarampi/lwip": "^0.0.19",
-    "colors": "^1.3.3",
+    "@randy.tarampi/generic-icon-splash-generate": "^1.0.1",
     "minimist": "^1.2.0"
   },
   "devDependencies": {
