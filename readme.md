@@ -1,7 +1,7 @@
 # ios-splash-generate 
 [![Build Status](https://travis-ci.org/excellenteasy/ios-splash-generate.svg?branch=master)](https://travis-ci.org/excellenteasy/ios-splash-generate)
 [![Dependency Status](https://david-dm.org/excellenteasy/ios-splash-generate.svg)](https://david-dm.org/excellenteasy/ios-splash-generate)
-[![devDependency Status](https://david-dm.org/excellenteasy/ios-splash-generate/dev-status.svg)](https://david-dm.org/excellenteasy/ios-splash-generate#info=devDependencies)
+[![devDependency Status](https://david-dm.org/excellenteasy/ios-splash-generate/dev-status.svg)](https://david-dm.org/excellenteasy/ios-splash-generate#info=devDependencies) [![Greenkeeper badge](https://badges.greenkeeper.io/randytarampi/ios-splash-generate.svg)](https://greenkeeper.io/)
 
 > Generate all required splash screen images from one source. Right size, right file name.
 
