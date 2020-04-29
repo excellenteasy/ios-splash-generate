@@ -1,7 +1,7 @@
 # ios-splash-generate 
 [![Build Status](https://travis-ci.com/randytarampi/ios-splash-generate.svg?branch=master)](https://travis-ci.com/randytarampi/ios-splash-generate)
 [![Dependency Status](https://david-dm.org/randytarampi/ios-splash-generate.svg)](https://david-dm.org/randytarampi/ios-splash-generate)
-[![devDependency Status](https://david-dm.org/randytarampi/ios-splash-generate/dev-status.svg)](https://david-dm.org/randytarampi/ios-splash-generate#info=devDependencies) [![Greenkeeper badge](https://badges.greenkeeper.io/randytarampi/ios-splash-generate.svg)](https://greenkeeper.io/)
+[![devDependency Status](https://david-dm.org/randytarampi/ios-splash-generate/dev-status.svg)](https://david-dm.org/randytarampi/ios-splash-generate#info=devDependencies) 
 
 > Generate all required splash screen images from one source. Right size, right file name.
 
