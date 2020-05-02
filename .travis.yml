@@ -1,23 +1,32 @@
 language: node_js
-cache:
-  directories:
-    - node_modules
 notifications:
   email: false
+os: linux
+dist: bionic
+matrix:
+  fast_finish: true
+  allow_failures:
+    - node_js: node
+    - node_js: lts/*
 node_js:
-  - 'node'
-  - '6'
-  - '4'
-before_install:
-  - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
-  - sudo apt-get -qq update
-  - sudo apt-get -qq install g++-4.8
+  - 8
+  - 10
+  - 12
+  - lts/*
+  - node
+before_deploy:
+- git config --local user.name "$TRAVIS_AUTHOR_NAME"
+- git config --local user.email "$TRAVIS_AUTHOR_EMAIL"
+deploy:
+  provider: script
+  script: npx semantic-release
+  skip_cleanup: true
+  on:
+    branch: master
+    node: 10
+    os: linux
+sudo: false
 env:
-  - CXX=g++-4.8
-before_script:
-  - npm prune
-after_success:
-  - npm run semantic-release
-branches:
-  except:
-    - /^v\d+\.\d+\.\d+$/
+  global:
+  - secure: CXHoPURiGr5miynF5rq1S2tru3XUCPTU4S0IzuWfgtauIOP1NxX1jLTRETyqB9biqmZd4MJ2hZtUk8nLkzeJCbLVIgNwr3AbEaH7eUCegrwcxsd6GirIW8VGsup7tQ1l8pX3LGBL6QWZtcP1iQJw3Oa6GlMHmmYfLJzWU9cOwn/Nwsi46MrrJrwskpV62lF/hgT1Cg8RQQeb2O4Pnt/DNA8o9CB0mmTjq1/N7KUHwdqux0t64aiOKQCoKtMDXGxeA2cXTxIlh0nNyunN8hU8T39zg00jwYLN9weUqtb2jzPRDXtrC8sgj1o3Wgg8ifgEV5aKwtxYqjucFVds75j7davpvyB1fVIDiMVfzu4FgyrkqZm9B1aTMU5VyZzithbf5AjZIk7VvWZReSxyrKq7i6nsfd7cPRx9zNtl+rSkrDnT59mA/5ZKGh0E+a5PYLZuXEj9Cjo1urqMjck8EbL8sQyowDs5NDGD8QoX219aZGvP25OuuFhw+vME+kBVoTzuuvAUG9tBi1q9GWZSnOAkELCyfFs9zW9w+73WUQe22ghEoUDo3edKpkHPE1gVWX/2hgfG04GH1X92AW4182Rm6P83lejX/CixhAQ9PQ4oLsf4zWe4iYjQPqmQUTPIV0KkgOalYoR8hbrh22F7N5l0Mn1DIBfelPuqDNlPKp90IoM=
+  - secure: Q3NOaQvf4g91dHxOsrGU/K7mLUgE70/A9kQZsR3EujWc29cONaKsoEGOPt7J8j+MlneEn1pdLjfVV433dH1rKM1Jxm7zGYjWxcQteYwn+FOogn9meO09khFCh7wTJwciGwnxU1eg79sIEne+p72Q2ILfQVQ9/xozstMbYAmniCPfCw3dF2jOtw8yttU2SbB9WnjbiLc1IjTDERvSPnAcb9vo5IqYhFOAiyNX28O1zFHmRlhhfpnacTCHrSa/wHuMvOOiF9H0uG7XqotlDMP6PlKVmAPG3hOyiyeLKOxhat9aKugD6ke4URKkrHV51oSCjzVqQpvBKd4FFwgstOWgHe9qNXyfl6BQ9PmLs+jC0LEtObRn2EyMsRx8q1qkzcGOOyegH4S9PP6RAEfUZQNAN3gEYVo0kahLUtoUADucP+cGIoHhAd9s0OyzoQnqLZPanQ7/Vb7EOFi+dYIepuwyWM8GrA5R3pfMJIC55LLmeenAxG7hEiax9YgCgMas9i7PBW+Vlx4MR3Tf77YB4eYYktg+tnvGtLZt4gW7qNzM7iroohxFJFbI8PE2LsdzRbqJTdT/gDDVlhxqXjj8OyELyOPGSI5ufAVL+5yk7O5ml6bn1vDsc5rfmUSPTMK+icTsHdVytlcs4Qgjim4/RvyEpkwWVSpfdGFYW1qW0zYGhDE=
